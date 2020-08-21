@@ -16,7 +16,8 @@ print("The frame width: {}, height: {}".format(width, height))
 
 # Save the video after some specific processing
 # https://www.zhihu.com/question/49558804
-out = cv2.VideoWriter('./result.avi', cv2.VideoWriter_fourcc(*'XVID'), 30, (width, height))
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter('./images/output.avi',fourcc, 20.0, (width,height))
 
 frame_num = 0
 while(True):

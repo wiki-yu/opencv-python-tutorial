@@ -8,10 +8,12 @@ import cv2
 # Value represents the brightness of the color, with 0 being completely dark and 255 being fully bright.
 # As for OpenCV, For HSV, Hue range is [0,179], Saturation range is [0,255] and Value range is [0,255].
 
-# test the range of hue in OpenCV
+# pass the BGR values to find HSV values
 green = np.uint8([[[0, 255, 0 ]]])
 hsv_green = cv2.cvtColor(green, cv2.COLOR_BGR2HSV)
 print(hsv_green)
+# We would get [[[ 60 255 255]]] for green
+# We can take [H-10, 100,100] and [H+10, 255, 255] as lower/upper bound
 
 img = cv2.imread("./images/color_space.png")
 cv2.imshow("image", img)
@@ -28,6 +30,7 @@ upper_green=np.array([70, 255, 255])
 lower_red=np.array([0, 100, 100]) #red
 upper_red=np.array([10, 255, 255])
 
+# Threshold the HSV image to get specific colors
 red_mask = cv2.inRange(hsv, lower_red, upper_red)
 blue_mask = cv2.inRange(hsv, lower_blue, upper_blue)
 green_mask = cv2.inRange(hsv, lower_green, upper_green)

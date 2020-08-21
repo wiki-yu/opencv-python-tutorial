@@ -6,8 +6,8 @@ img = cv2.imread("./images/lenna.png")
 img_gray = cv2.imread("./images/lenna.png", 0)
 cv2.imshow("original", img)
 cv2.imshow("gray", img_gray)
-# Display a frame for 300 ms, if 0 then waits for user to press any key
-cv2.waitKey(300)
 
+# Display a frame for 1000 ms, if 0 then waits for user to press any key
+cv2.waitKey(1000)
 # Using cv2.imwrite() method saving the image
 cv2.imwrite("lenna_gray.png", img_gray)
